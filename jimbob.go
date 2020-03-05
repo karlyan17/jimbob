@@ -135,10 +135,10 @@ func validDir(path string) error {
 }
 
 func (bucket *Bucket) updateNextIndex() {
-    for i := bucket.next_index;; i++ {
-        if _,exists := bucket.Data[i]; !exists {
-            bucket.next_index = i
-            break
-        }
+    var last_key int
+    for key := range(bucket.Data) {
+        if key > last_key {
+            last_key = key
     }
+    return last_key + 1
 }
