@@ -139,6 +139,7 @@ func (bucket *Bucket) updateNextIndex() {
     for key := range(bucket.Data) {
         if key > last_key {
             last_key = key
+        }
     }
-    return last_key + 1
+    bucket.next_index = last_key + 1
 }
